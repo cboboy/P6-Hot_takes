@@ -8,7 +8,7 @@ DATABASE = 'votre chaine de connection a mongoDB'
 KEY_TOKEN = 'votre cle securité pour le token'  
 KEY_EMAIL = 'votre cle securité pour l'email'  
 
-ouvrir un terminal 
+### ouvrir un terminal 
 * npm install  
 * npm run start  
 
@@ -16,7 +16,7 @@ le serveur doit demarrer sur le port 3000
 
 ## a la racine du projet
 
-ouvrir un terminal 
+### ouvrir un terminal 
 * npm install
 * npm run start
 

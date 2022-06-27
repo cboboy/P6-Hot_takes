@@ -45,4 +45,4 @@ Thumbs.db
 backend/.env
 backend/node_modules
 backend/images/*
-backend/!images/.gitkeep
+!backend/images/.gitkeep
