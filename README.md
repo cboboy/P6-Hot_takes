@@ -1,6 +1,10 @@
 # P6 -- Construisez une API sécurisée pour une application d'avis gastronomiques
 ## projet 6 de la formation développeur WEB d'openclassrooms
 
+## version
+node -> v16.14.2  
+npm -> 8.13.1  
+
 ## dans le dossier backend
 
 ### creer fichier ".env" avec:
