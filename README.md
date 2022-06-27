@@ -13,7 +13,7 @@ KEY_EMAIL = 'votre cle securité pour l'email'
 * npm run start  
 
 le serveur doit demarrer sur le port 3000
-
+si Connexion à MongoDB échouée !, vérifier votre chaine de connection a mongoDB dans le fichier .env 
 ## a la racine du projet
 
 ### ouvrir un terminal 
