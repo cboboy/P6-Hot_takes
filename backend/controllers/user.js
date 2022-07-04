@@ -7,7 +7,6 @@ const bcrypt = require('bcrypt');
 // token
 const jwt = require('jsonwebtoken');
 
-const { body, validationResult } = require('express-validator');
 
 const dotEnv = require('dotenv');
 const User = require('../models/User');
@@ -18,11 +17,7 @@ dotEnv.config();
  * sign up
  */
  exports.signup =  (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    } else {
-      const emailCrypt = cryptoJs.HmacSHA1(req.body.email, process.env.KEY_EMAIL).toString();
+    const emailCrypt = cryptoJs.HmacSHA256(req.body.email, process.env.KEY_EMAIL).toString();
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
             const user = new User({
@@ -34,15 +29,13 @@ dotEnv.config();
                 .catch(error => res.status(400).json({ error}));
         })
         .catch(error => res.status(500).json({ error}));  
-    }
-    
 };
 
 /**
  * login
  */
 exports.login = (req, res, next) => {
-    const emailCrypt = cryptoJs.HmacSHA1(req.body.email, process.env.KEY_EMAIL).toString();
+    const emailCrypt = cryptoJs.HmacSHA256(req.body.email, process.env.KEY_EMAIL).toString();
     User.findOne({ email: emailCrypt })
     .then(user => {
         if (!user) {

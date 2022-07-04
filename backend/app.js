@@ -1,5 +1,4 @@
 // importe les modules
-// framework reposant sur Node, qui facilite la création et la gestion des serveurs Node
 const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require("helmet");
@@ -19,10 +18,11 @@ mongoose.connect(process.env.DATABASE,
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
   /**
-   * Middleware
+   * Middleware general
+   * recoit la requete et la reponse et les gerent
    */
 
-// configuration du cors
+// configuration du cors (Cross Origin Resource Sharing)
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
@@ -39,7 +39,7 @@ app.use(helmet({
 }));
 
 
-// routes
+// selon routes
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/api/sauces', saucesRoutes);
 app.use('/api/auth', userRoutes);
